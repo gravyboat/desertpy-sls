@@ -27,7 +27,7 @@ include:
     - watch_in:
       - service: nginx
 
-{{ pillar['index_location'] }}:
+{{ pillar['index_location'] }}/index.html:
   file:
     - managed
     - source: salt://webapp/files/index.html
