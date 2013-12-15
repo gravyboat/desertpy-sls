@@ -1,4 +1,5 @@
-include nginx
+include:
+  - nginx
 
 {{ pillar['user'] }}:
   user:
@@ -23,6 +24,19 @@ include nginx
     - mode: 644
     - require:
       - pkg: nginx
+    - watch_in:
+      - service: nginx
+
+{{ pillar['index_location'] }}:
+  file:
+    - managed
+    - source: salt://webapp/files/index.html
+    - user: {{ pillar['user'] }}
+    - group: {{ pillar['user'] }}
+    - mode: 644
+    - require:
+       - user: {{ pillar['user'] }}
+       - file: /etc/nginx/conf.d/webapp.conf
     - watch_in:
       - service: nginx
 
