@@ -1,5 +1,5 @@
 #web application settings
 
 user: forrest
-server_ip: 162.243.95.137
+server_ip: insert_ip_here!
 index_location: '/home/forrest/'
