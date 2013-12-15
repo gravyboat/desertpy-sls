@@ -27,6 +27,16 @@ include:
     - watch_in:
       - service: nginx
 
+{{pillar['index_location'] }}:
+  file:
+    - directory
+    - user: {{ pillar['user'] }}
+    - group: {{ pillar['user'] }}
+    - mode: 755
+    - require:
+      - user: {{ pillar['user'] }}
+
+
 {{ pillar['index_location'] }}/index.html:
   file:
     - managed
