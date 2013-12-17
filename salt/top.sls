@@ -1,3 +1,3 @@
 base:
   '*':
-    - webapp
+    - webapp.app
